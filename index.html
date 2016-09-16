@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript - 13-14</title>
+	<script src="js/jquery-3.1.0.min.js" defer></script>
+	<script src="js/tmpl.js" defer></script>
+	<script src="js/script.js" defer></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div id="quest-container"></div>
+
+	<div class="popup">
+		<div class="popup__window"></div>
+	</div>
+
+	<script type="text/html" id="quest_template">
+		<form class="quest">
+			<h3 class="quest__header"><%=headerText%></h3>
+			<ol class="quest__list">
+				<% for ( var i = 0; i < questions.length; i++ ) { %>
+				<li class="quest__item">
+					<h4 class="quest__item-header"><%=questions[i].title%></h4>
+					<% for ( var k = 0; k < questions[i].options.length; k++ ) { %>
+					<label class="quest__item-option">
+						<input type="radio" name="option_<%=i%>">
+						<span><%=questions[i].options[k]%></span></label>
+						<% } %>
+					</li>
+					<% } %>
+				</ol>
+				<input type="button" value="<%=buttonText%>" class="quest__button">
+			</form>
+		</script>
+
+	</body>
+	</html>
